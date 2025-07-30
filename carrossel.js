@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CONFIGURAÇÕES ---
     const SPEED = 25; // Velocidade em pixels por segundo.
-    const RESUME_DELAY = 0; // 5s de espera para retomar a animação.
+    const RESUME_DELAY = 0; // 0s de espera para retomar a animação.
 
     // --- VARIÁVEIS DE ESTADO ---
     let currentPosition = 0;
