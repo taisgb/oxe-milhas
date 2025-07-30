@@ -1137,6 +1137,10 @@ section {
     z-index: 50;
 }
 
+.cta-content a {
+    margin-top: 1.5rem;
+}
+
 .cta-content h2,
 .cta-content p {
     color: var(--text-white);
@@ -1144,6 +1148,7 @@ section {
 
 .cta-decoration {
     color: var(--text-white);
+    font-size: 3rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -1153,19 +1158,18 @@ section {
     z-index: 1;
 }
 
-/* .decoration-element {
-    position: absolute;
-    font-size: 3rem;
-    opacity: 0.9;
-    animation: float-around 10s ease-in-out infinite;
-    color: var(--text-white);
-} */
 .decoration-element {
     position: absolute;
-    font-size: 3rem;
-    opacity: 0.9;
-    animation: float-around 10s ease-in-out infinite;
+    font-size: 3rem;    
+    /* Mude a opacidade para um valor entre 0.1 e 0.2 para um efeito mais suave */
+    opacity: 0.15; 
+    
+    animation: float-around 15s ease-in-out infinite; /* Aumentei um pouco a duração */
     color: var(--text-white);
+}
+
+.decoration-element i{
+    color: #f0c14b
 }
 
 .decoration-element:nth-child(1) {
@@ -1177,13 +1181,49 @@ section {
 .decoration-element:nth-child(2) {
     top: 60%;
     right: 15%;
-    animation-delay: 3s;
+    animation-delay: 0s;
 }
 
 .decoration-element:nth-child(3) {
     bottom: 30%;
     left: 20%;
-    animation-delay: 6s;
+    animation-delay: 0s;
+}
+
+.decoration-element:nth-child(4) {
+    bottom: 60%;
+    left: 70%;
+    animation-delay: 0s;
+}
+
+.decoration-element:nth-child(5) {
+    top: 50%;
+    right: 30%;
+    animation-delay: 0s;
+}
+
+.decoration-element:nth-child(6) {
+    top: 0%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+@keyframes float-around {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, 20px);
+  }
+  50% {
+    transform: translate(-20px, -10px);
+  }
+  75% {
+    transform: translate(10px, -15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /* ---- COTAÇÃO ---- */
