@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxe Milhas e Viagens - Sua próxima viagem começa aqui</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-content">
+                    <img src="./assets/logo/logo.png" alt="logo Oxe Milhas e Viagens" class="logo-image" loading="lazy">
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="menu">
+                    <li><a href="#sobre" class="nav-link">A Oxe</a></li>
+                    <li><a href="#produtos" class="nav-link">Produtos</a></li>
+                    <li><a href="#resultados" class="nav-link">Resultados</a></li>
+                    <li><a href="#planos" class="nav-link">Planos</a></li>
+                    <li><a href="#duvidas" class="nav-link">Dúvidas</a></li>
+                    <li><a href="#cotacao" class="nav-cta-mobile btn btn-primary">Fazer cotação</a></li>
+                </ul>
+            </nav>
+
+            <a href="#cotacao" class="btn btn-primary header-cta">
+                <i class="fas fa-plane-departure"></i>
+                Fazer cotação
+            </a>
+            
+            <button id="hamburger-btn" type="button" class="hamburger-btn" title="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-background">
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Chega de sonhar com</span>
+                        <span class="title-line highlight">a viagem perfeita</span>
+                        <span class="title-line">com a Oxe, você viaja.</span>
+                    </h1>
+                    <p class="hero-subtitle">Descubra os segredos das milhas aéreas e transforme seus gastos do dia a dia em experiências incríveis.</p>
+                    <div class="hero-ctas">
+                        <a href="#mentoria" class="btn btn-primary btn-hero">
+                            Conhecer a Mentoria
+                        </a>
+                        <a href="#planos" class="btn btn-secondary btn-hero">
+                            Ver Planos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="container">
+                <div class="section-header">
+                    <h2 >Conheça mais sobre a Oxe Milhas</h2>
+                    <div class="section-subtitle">Transformando sonhos em realidade, uma milha de cada vez.</div>
+                </div>
+
+                <div class="about-main-wrapper">                    
+                    <div class="about-me-imagem">
+                        <div class="image-container">
+                            <img src="./assets/img/jogi.webp" alt="Foto de Jorge Lauro, criador da Oxe Milhas e Viagens" class="about-me-photo">
+                            <div class="image-overlay">
+                                <h3>Jorge Lauro</h3>
+                                <i class="fas fa-plane-departure"></i>
+                                <p>Fundador da Oxe Milhas</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-me-content">
+                        <h3>Oi, eu sou o Jorge Lauro!</h3>
+                        <p>Sou o criador da Oxe Milhas e Viagens, apaixonado por ajudar pessoas a realizarem seus sonhos de viagem. Já ajudei centenas de pessoas a economizarem e viajarem mais.</p>
+                        <p>Com a Oxe, ensino estratégias práticas e acessíveis para acumular milhas, planejar viagens e aproveitar promoções imperdíveis.</p>
+                        <p>Minha missão é provar que milhas não são um bicho de sete cabeças. Eu te ajudo a transformar seus gastos do dia a dia em milhas e experiências incríveis, usando estratégias que realmente funcionam.</p>
+                        
+                        <div class="achievement-badges">
+                            <div class="badge">
+                                <i class="fas fa-medal"></i>
+                                <span>Expert em Milhas</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-users"></i>
+                                <span>200+ Alunos</span>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-globe"></i>
+                                <span>30+ Países</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="info-cards-container">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Nossa Missão</h3>
+                            <p>Empoderar pessoas para viajarem melhor, gastando menos, usando os próprios gastos como trampolim para conhecer o mundo.</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Nossos Valores</h3>
+                            <ul>
+                                <li>Clareza e honestidade</li>
+                                <li>Didática simples e prática</li>
+                                <li>Foco na economia real</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="produtos">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nossos Produtos</h2>
+                    <div class="section-subtitle-light">Escolha o produto que mais combina com você e comece a acumular milhas!</div>
+                </div>
+                 
+                <div class="products-grid">
+                    <article id="mentoria" class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <span class="product-badge">Para Iniciantes</span>
+                        </div>
+                        <div class="product-content">
+                            <h3>A Mentoria: Seu passaporte do zero às viagens</h3>
+                            <p>Um acompanhamento completo para você aprender a pescar! Vamos pegar na sua mão e mostrar o passo a passo para acumular milhas e planejar sua viagem.</p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-calendar-days"></i> Mentoria individual ao vivo</li>
+                                <li><i class="fas fa-users"></i> Acesso à comunidade exclusiva</li>
+                                <li><i class="fas fa-file-alt"></i> Material de apoio completo</li>
+                                <li><i class="fas fa-headset"></i> Suporte para tirar dúvidas</li>
+                            </ul>
+                            <a href="#planos" class="btn btn-primary btn-product">
+                                <i class="fas fa-rocket"></i>
+                                Quero a Mentoria!
+                            </a>
+                        </div>
+                    </article>
+
+                    <article id="close-friends" class="product-card featured">
+                        <div class="product-header">
+                            <div class="product-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <span class="product-badge popular">Mais Popular</span>
+                        </div>
+                        <div class="product-content">
+                            <h3>Grupo exclusivo: Alertas que valem ouro</h3>
+                            <p>Receba no seu celular as melhores promoções e estratégias quentes. Nesse grupo de elite, a gente te entrega o peixe!</p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-plane-departure"></i> Alerta passagem promocional</li>
+                                <li><i class="fas fa-rocket"></i> Estratégias para acúmulo rápido</li>
+                                <li><i class="fas fa-credit-card"></i> Análises dos melhores cartões</li>
+                                <li><i class="fas fa-eye"></i> Conteúdo exclusivo dos bastidores</li>
+                            </ul>
+                            <a href="#planos" class="btn btn-primary btn-product">
+                                <i class="fas fa-star"></i>
+                                Entrar no Grupo Exclusivo!
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resultados">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title-light">A galera da Oxe tá voando!</h2>
+                    <div class="section-subtitle">Veja os resultados incríveis dos nossos alunos</div>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn prev-btn" type="button" aria-label="Depoimento anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+
+                    <div class="logo-carousel-container">
+                        <div class="carousel-track">
+                            <div class="testimonial-card">
+                                <img src="./assets/img/brena.webp" alt="Depoimento de aluno 1" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Brena Panelli</h4>
+                                        <p>"Toda a agitação do Rio ficou só na parte boa. A Oxe Milhas cuidou de toda a burocracia, e minha única preocupação foi escolher o próximo passeio"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/emerson.webp" alt="Depoimento de aluno 2" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Emerson Dantas</h4>
+                                        <p>"Já visitei 5 países usando milhas!"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/luma.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Luma Lisley</h4>
+                                        <p>"Método simples e que realmente funciona!"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/vanessa.webp" alt="Depoimento de aluno 3" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Vanessa Cordeiro</h4>
+                                        <p>"Realizei meu sonho de assistir meu time jogando a Libertadores na Colômbia pagando somente a taxa de embarque"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/gustavo.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Gustavo Mattos</h4>
+                                        <p>"Entrei no grupo e em menos de 30 dias já estava com uma viagem marcada para o Rio. O resultado é muito rápido!"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/dindi.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Ingrid Guimarães</h4>
+                                        <p>"Minha viagem para o Marrocos foi inesquecível, e a Oxe Milhas cuidou de cada detalhe para que tudo fosse perfeito"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="testimonial-card">
+                                <img src="./assets/img/bebeto.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Bebeto Almeida</h4>
+                                        <p>"Decidi de última hora que precisava estar no Rio para o jogo do Vasco. Achei que seria impossível, mas a Oxe Milhas encontrou a solução e viabilizou o sonho. Foi sensacional!"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-card">
+                                <img src="./assets/img/bruna.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Bruna Borges</h4>
+                                        <p>"Sempre achei que uma viagem para Boston estaria fora do meu orçamento. As estratégias que aprendi na mentoria da Oxe Milhas fizeram a diferença e consegui realizar a viagem com uma economia incrível!"</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                             
+                            <div class="testimonial-card">
+                                <img src="./assets/img/tais.webp" alt="Depoimento de aluno 4" loading="lazy">
+                                <div class="testimonial-overlay">
+                                    <div class="testimonial-info">
+                                        <h4>Taís Bomfim</h4>
+                                        <p>"A energia de um glaciar é algo único. Agradeço à Oxe Milhas, que não só viabilizou a viagem com milhas, mas me deu todo o suporte para essa aventura."</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" type="button" aria-label="Próximo depoimento">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="planos">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Escolha seu plano e comece acumular milhas</h2>
+                    <div class="section-subtitle-light">Planos flexíveis para todos os perfis de viajantes</div>
+                </div>
+
+                <div class="plan-toggle">
+                    <button id="btn-closefriends" type="button" title="Grupo exclusivo" class="toggle-btn toggle-active">
+                        <i class="fas fa-bolt"></i>
+                        Grupo Exclusivo + Alerta Viagens
+                    </button>
+                    <button id="btn-mentoria" type="button" title="Mentoria individual" class="toggle-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        Mentoria individual
+                    </button>
+                </div>
+
+                <div id="closefriends-plans" class="plans-container active">
+                    <div class="plan">
+                        <div class="plan-header">
+                            <h4>Mensal</h4>
+                            <div class="plan-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">59</span>
+                            <span class="period">,90/mês</span>
+                        </div>
+                        <a href="https://pay.hotmart.com/P99885952X?off=wv5lxpgm" target="_blank" class="btn btn-primary btn-plan" rel="noopener">
+                            <i class="fas fa-rocket"></i>
+                            Assinar Agora
+                        </a>
+                    </div>
+
+                    <div class="plan">
+                        <div class="plan-header">
+                            <h4>Trimestral</h4>
+                            <div class="plan-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">159</span>
+                            <span class="period">,90</span>
+                        </div>
+                        <div class="savings-badge">Economia de 11%</div>
+                        <a href="https://pay.hotmart.com/P99885952X?off=uxbnaeq5" target="_blank" class="btn btn-primary btn-plan" rel="noopener">
+                            <i class="fas fa-rocket"></i>
+                            Assinar Agora
+                        </a>
+                    </div>
+
+                    <div class="plan">
+                        <div class="plan-header">
+                            <h4>Semestral</h4>
+                            <div class="plan-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">329</span>
+                            <span class="period">,40</span>
+                        </div>
+                        <div class="savings-badge">Economia de 8%</div>
+
+                        <a href="https://pay.hotmart.com/P99885952X?off=2co4843a" target="_blank" class="btn btn-primary btn-plan" rel="noopener">
+                            <i class="fas fa-rocket"></i>
+                            Assinar Agora
+                        </a>
+                    </div>
+
+                    <div class="plan featured">
+                        <div class="popular-badge">
+                            <i class="fas fa-crown"></i>
+                            Mais Popular
+                        </div>
+                        <div class="plan-header">
+                            <h4>Anual</h4>
+                            <div class="plan-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="plan-price">
+                            <span class="currency">R$</span>
+                            <span class="amount">619</span>
+                            <span class="period">,80</span>
+                        </div>
+                        <div class="savings-badge best">Economia de 14%</div>
+                        <a href="https://pay.hotmart.com/P99885952X?off=j4oxdrg6" target="_blank" class="btn btn-primary btn-plan" rel="noopener">
+                            <i class="fas fa-crown"></i>
+                            Assinar Agora
+                        </a>
+                    </div>
+                </div>
+
+                <div id="mentoria-plans" class="plans-container">
+                    <div class="plan mentoria-plan">
+                        <div class="plan-header">
+                            <h4>Mentoria Exclusiva</h4>
+                            <div class="plan-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                        </div>
+                        <p class="plan-description">Tenha acesso à mentoria individual ao vivo</p>
+                        <div class="plan-prices">
+                            <div class="price-option">
+                                <span class="price-label">12x de</span>
+                                <div class="plan-price">
+                                    <span class="currency">R$</span>
+                                    <span class="amount">41</span>
+                                    <span class="period">,36</span>
+                                </div>
+                            </div>
+                            <div class="price-divider">ou</div>
+                            <div class="price-option">
+                                <span class="price-label">À vista</span>
+                                <div class="plan-price">
+                                    <span class="currency">R$</span>
+                                    <span class="amount">399</span>
+                                    <span class="period">,99</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://pay.hotmart.com/O99945636V?off=fl2hqz0e&hotfeature=51&_hi=eyJjaWQiOiIxNzUxOTY2NjU0MDI2Mjk3NzYxNjAxMDE2ODEzODAwIiwiYmlkIjoiMTc1MTk2NjY1NDAyNjI5Nzc2MTYwMTAxNjgxMzgwMCIsInNpZCI6ImIzMzhhZmQ5NDRjOTRhZWRiODE1MjI0NDgxMzVkYjAyIn0=.1753725769114&bid=1753725770739" target="_blank" class="btn btn-primary btn-plan" rel="noopener">
+                            <i class="fas fa-graduation-cap"></i>
+                            Compre Agora
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="security-info">
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Compra Segura</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Garantia de 7 dias</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Ambiente Hotmart</span>
+                    </div>
+                </div>
+            </div>
+        </section>        
+
+        <section id="cta-final">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>E aí, vamos fazer as malas?</h2>
+                    <p>O mundo é grande demais para você ficar só na vontade. Deixe a Oxe te mostrar o caminho.</p>
+                    <a href="#cotacao" class="btn btn-cta btn-large">
+                        <i class="fas fa-plane-departure"></i>
+                        Sim, Quero Viajar Mais!
+                    </a>
+                </div>
+                <div class="cta-decoration">
+                    <div class="decoration-element">✈️</div>
+                    <div class="decoration-element">🌍</div>
+                    <div class="decoration-element">🎒</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cotacao">
+            <div class="container" data-aos="fade-up">
+                <h2 class="section-title">Faça sua cotação de viagem</h2>
+                <p class="section-subtitle-light">Preencha os dados abaixo e receba uma proposta personalizada!</p>
+
+                <div class="form-container">
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+
+                    <div id="form-status-message"></div>
+
+                    <form id="cotacao-form" method="post" action="https://formspree.io/f/mrbqbbpr">
+                        <div class="form-step active">
+                            <h4>Passo 1: Suas Informações</h4>
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone (com DDD)</label>
+                                <input type="tel" id="telefone" name="telefone" required>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-primary btn-next">Próximo</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step">
+                            <h4>Passo 2: Detalhes da Viagem</h4>
+                            <div class="form-group">
+                                <label for="origem">Cidade de Origem</label>
+                                <input type="text" id="origem" name="origem" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="destino">Destino Desejado</label>
+                                <input type="text" id="destino" name="destino" required>
+                            </div>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="data-ida">Data de Ida</label>
+                                    <input type="date" id="data-ida" name="data-ida" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data-volta">Data de Volta</label>
+                                    <input type="date" id="data-volta" name="data-volta" required>
+                                </div>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-secondary btn-prev">Anterior</button>
+                                <button type="button" class="btn btn-primary btn-next">Próximo</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step">
+                            <h4>Passo 3: Passageiros</h4>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="adultos">Adultos (12+ anos)</label>
+                                    <input type="number" id="adultos" name="adultos" min="1" value="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="criancas">Crianças (2 a 11 anos)</label>
+                                    <input type="number" id="criancas" name="criancas" min="0" value="0" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bebes">Bebês (0 a 23 meses)</label>
+                                    <input type="number" id="bebes" name="bebes" min="0" value="0" required>
+                                </div>
+                            </div>
+                            
+                            <div id="idades-criancas-container" class="age-container"></div>
+
+                            <div id="idades-bebes-container" class="age-container"></div>
+                            
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-secondary btn-prev">Anterior</button>
+                                <button type="button" class="btn btn-primary btn-next">Próximo</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step">
+                            <h4>Passo 4: Detalhes Finais</h4>
+
+                            <div class="form-group">
+                                <label for="orcamento">Valor que está disposto a investir por pessoa (R$)</label>
+                                <input type="number" id="orcamento" name="orcamento" min="100" step="100" placeholder="Ex: 3500" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Precisa de bagagem despachada (23kg)?</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="bagagem-sim" name="bagagem_despachada" value="Sim" required>
+                                    <label for="bagagem-sim" class="radio-label">Sim</label>
+                                    <input type="radio" id="bagagem-nao" name="bagagem_despachada" value="Não">
+                                    <label for="bagagem-nao" class="radio-label">Não</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Condição de pagamento preferencial?</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="pagamento-pix" name="pagamento_preferencial" value="PIX" required>
+                                    <label for="pagamento-pix" class="radio-label">PIX</label>
+                                    <input type="radio" id="pagamento-cartao" name="pagamento_preferencial" value="Cartão de Crédito">
+                                    <label for="pagamento-cartao" class="radio-label">Cartão de Crédito</label>
+                                </div>
+                                <small class="form-text">Pagamentos no cartão podem acrescer taxas.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="detalhes-voo">Caso já tenha uma cotação, cole os detalhes aqui</label>
+                                <textarea id="detalhes-voo" name="detalhes_voo" rows="4" placeholder="Ex: Voo GOL 1234, 15/12/2025 08:00, valor:..."></textarea>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="button" class="btn btn-secondary btn-prev">Anterior</button>
+                                <button type="submit" class="btn btn-primary">Enviar Cotação</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section id="duvidas">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title-light">Ainda tem alguma dúvida?</h2>
+                    <div class="section-subtitle">Esclarecemos as principais questões dos nossos alunos</div>
+                </div>
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Mentoria vs. Grupo Exclusivo?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A Mentoria Individual é um atendimento 100% personalizado, com análise do seu perfil, estratégia sob
+                                medida e acompanhamento direto.<br>
+                                Já o Grupo Exclusivo é um espaço coletivo, com alertas, conteúdos estratégicos e troca de 
+                                experiências — ideal para quem quer aprender com a comunidade. Mas atenção, não tiro dúvidas 
+                                individuais dentro dessa comunidade!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Preciso ter cartão de alta renda?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Não! Existem ótimas estratégias mesmo para quem tem cartão básico ou com limite mais baixo. O que 
+                                importa é saber usar bem o que você já tem — e isso eu te ensino!
+                            </p>
+                        </div>
+                    </div>
+                     <div class="faq-item">
+                        <button class="faq-question">
+                           <span>As aulas da mentoria são ao vivo?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A consultoria é feita em encontro ao vivo, com espaço para tirar dúvidas e montar sua estratégia do 
+                                zero. Além disso, você recebe 30 dias de acompanhamento direto comigo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Posso cancelar quando quiser?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Na mentoria individual, como se trata de um serviço com entrega imediata, não há política de 
+                                cancelamento após o atendimento. <br>
+                                No grupo, você pode sair a qualquer momento — mas duvido que vá querer sair depois de ver o quanto 
+                                ele te ajuda.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>É possível viajar mesmo tendo pouco gasto no cartão?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim! Existem formas alternativas de acumular milhas: promoções bonificadas, compras inteligentes, 
+                                programas de fidelidade, clubes de pontos e até compra estratégica de milhas. Tudo isso pode fazer 
+                                você emitir passagens sem depender só do cartão.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Não entendo nada de milhas, essa mentoria é pra mim?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sim! A mentoria é pra quem está começando ou quer se aprofundar. Eu explico tudo com exemplos práticos
+                                 e linguagem simples — você vai sair da mentoria sabendo exatamente o que fazer.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Tenho gastos no dia a dia. Isso já ajuda?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Com certeza. Seus gastos normais (supermercado, farmácia, gasolina, etc) podem virar passagens aéreas
+                                 se forem direcionados do jeito certo.<br>
+                                 Você já gasta. Agora é hora de gastar com inteligência.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                           <span>Preciso estudar muito ou é algo prático?</span>
+                           <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>É prático. A ideia da mentoria é te dar clareza e caminho curto, para que você não fique perdido entre bancos, 
+                                cartões e promoções. Você vai sair com a estratégia pronta pra aplicar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-content">
+                            <img src="./assets/logo/logo-branca.png" alt="logo oxe milhas" loading="lazy" class="logo-image logo-footer">
+                        </div>
+                    </div>
+                    <p class="slogan">Descomplicando suas viagens, uma milha de cada vez.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Produtos</h4>
+                        <a href="#mentoria">Mentoria</a>
+                        <a href="#close-friends">Grupo Exclusivo</a>
+                        <a href="#planos">Planos</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Empresa</h4>
+                        <a href="#sobre">Sobre Nós</a>
+                        <a href="#resultados">Resultados</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Suporte</h4>
+                        <a href="#duvidas">FAQ</a>
+                        <a href="#cotacao">Cotação</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Oxe Milhas e Viagens. Todos os direitos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/oxemilhaseviagens" target="_blank" aria-label="Instagram" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/oxemilhaseviagens" target="_blank" aria-label="Facebook" rel="noopener">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+                
+            </div>
+            <p class="gb"><small>Desenvolvido por <a href="https://www.taisgb.com.br" target="_blank" rel="noopener">taisgb.com.br</a></small></p>
+        </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="forms.js"></script>
+    <script src="carrossel.js"></script>
+    
+</body>
+</html>
