@@ -1986,8 +1986,23 @@ section {
     h2 { font-size: 2.5rem; }
 
     /* --- HEADER --- */
-    .hamburger-btn { display: none; }
-    .header-cta { display: inline-flex; }
+    .hamburger-btn { 
+        display: none; 
+    }
+    .header-cta { 
+        display: inline-flex; 
+    }
+
+    /* Container específico do header para mais espaço */
+    #header .container {
+        width: 95%; 
+    }
+
+    .logo {
+        flex-shrink: 0; /* Impede que o logo seja espremido */
+    }
+
+    /* Transforma o menu em uma barra de navegação horizontal */
     .nav-menu {
         position: static;
         left: auto;
@@ -1996,18 +2011,51 @@ section {
         background: transparent;
         transition: none;
         flex-direction: row;
+        align-items: center;
     }
+
+    /* Alinha os itens do menu e diminui o espaçamento */
     .nav-menu .menu {
         display: flex;
         flex-direction: row;
-        gap: 2rem;
+        gap: 1.25rem; /* Valor menor e unificado para economizar espaço */
     }
-    .nav-menu .menu li { margin: 0; animation: none; opacity: 1; transform: none; }
-    .nav-link { color: var(--text-card); font-size: 1rem; position: relative; }
-    .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: var(--transition); }
-    .nav-link:hover::after { width: 100%; }
-    .nav-cta-mobile { display: none; }
-    
+
+    .nav-menu .menu li { 
+        margin: 0; 
+        animation: none; 
+        opacity: 1; 
+        transform: none; 
+    }
+
+    /* Estiliza os links para desktop, com fonte menor */
+    .nav-link {
+        color: var(--text-card);
+        font-size: 0.95rem; /* Valor menor e unificado para economizar espaço */
+        position: relative;
+        padding: 5px 0;
+    }
+
+    /* Efeito de sublinhado ao passar o mouse */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0; /* Ajustado para ficar abaixo do padding */
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Esconde o botão de cotação que fica dentro do menu mobile */
+    .nav-cta-mobile {
+        display: none;
+    }
     /* --- HERO --- */
     .hero-ctas { flex-direction: row; justify-content: center; }
 
