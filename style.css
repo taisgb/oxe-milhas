@@ -1826,13 +1826,23 @@ section {
     
     .product-header {
         width: 100%; /* Força o header do card a ocupar a largura total */
-    }
+    }    
 
     /* ==========================================================================
        6. Seção Resultados
        ========================================================================== */
     .testimonials-grid, .plans-container {
         grid-template-columns: 1fr;
+    }
+
+    .logo-carousel-container {
+        margin-top: 0;
+    }
+
+
+    .section-header {
+        margin-bottom: 1rem !important; 
+        padding-bottom: 0 !important; /* Remove o padding inferior */
     }
 
     /* ==========================================================================
@@ -1860,6 +1870,8 @@ section {
         align-items: center; /* Centraliza os planos */
         gap: 2rem; /* Espaçamento entre os planos */
     }
+
+    
 
    
 
