@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (originalCards.length === 0) return;
 
     // --- CONFIGURAÇÕES ---
-    const SPEED = 25; // Velocidade em pixels por segundo.
+    const SPEED = 15; // Velocidade em pixels por segundo.
     const RESUME_DELAY = 0; // 0s de espera para retomar a animação.
 
     // --- VARIÁVEIS DE ESTADO ---
