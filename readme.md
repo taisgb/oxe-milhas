@@ -67,7 +67,7 @@ Por ser um projeto front-end estático, não há necessidade de instalação de 
 
 **Taís GB**
 * **Website:** [taisgb.com.br](https://www.taisgb.com.br)
-* **GitHub:** `https://github.com/taisgb/`
-* **LinkedIn:** `https://www.linkedin.com/in/taisgb/`
+* **GitHub:** [https://github.com/taisgb/](https://github.com/taisgb/)
+* **LinkedIn:** [https://www.linkedin.com/in/taisgb/](https://www.linkedin.com/in/taisgb/)
 
 
