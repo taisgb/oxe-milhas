@@ -1,74 +1,100 @@
-window.addEventListener('load', () => { 
+document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.querySelector('.carousel-wrapper');
+    if (!wrapper) return;
 
-    const track = document.querySelector('.carousel-track');
-    if (!track) return;
-
-    const container = track.parentElement; // O .logo-carousel-container
-
-    // --- CONFIGURAÇÕES ---
-    const SPEED = 50; 
-
-    // --- VARIÁVEIS DE ESTADO ---
-    //A posição inicial é a largura do container, para começar fora da tela.
-    let position = container.offsetWidth; 
-    let isPaused = false;
-    let animationFrameId;
-
-    // --- LÓGICA ---
+    const track = wrapper.querySelector('.carousel-track');
+    const prevBtn = wrapper.querySelector('.prev-btn');
+    const nextBtn = wrapper.querySelector('.next-btn');
     const originalCards = Array.from(track.children);
     
-    const setupClones = () => {
-        while (track.offsetWidth < container.offsetWidth * 2) {
+    if (originalCards.length === 0) return;
+
+    // --- CONFIGURAÇÕES ---
+    const SPEED = 15; // Velocidade em pixels por segundo.
+    const RESUME_DELAY = 0; // 0s de espera para retomar a animação.
+
+    // --- VARIÁVEIS DE ESTADO ---
+    let currentPosition = 0;
+    let isPausedByInteraction = false;
+    let animationFrameId;
+    let resumeTimeoutId;
+
+    // --- CLONAGEM ---
+    // A lógica agora garante que a pista seja longa o suficiente para o loop.
+    function setupClones() {
+        // Remove clones antigos antes de recalcular, caso haja redimensionamento da tela
+        while (track.children.length > originalCards.length) {
+            track.removeChild(track.lastChild);
+        }
+
+        // Continua adicionando clones até a pista ser pelo menos 2x mais larga que o container
+        while (track.scrollWidth < wrapper.offsetWidth * 2) {
             originalCards.forEach(card => {
                 track.appendChild(card.cloneNode(true));
             });
         }
     }
 
+    // --- LÓGICA DA ANIMAÇÃO ---
     function animate() {
-        if (isPaused) return; 
+        if (isPausedByInteraction) return;
 
-        position -= SPEED / 60; 
+        currentPosition -= SPEED / 60;
 
         const firstCard = track.firstElementChild;
-        const gap = parseFloat(window.getComputedStyle(track).gap);
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
         const cardWidthWithGap = firstCard.offsetWidth + gap;
         
-        if (Math.abs(position) >= cardWidthWithGap) {
+        if (Math.abs(currentPosition) >= cardWidthWithGap) {
             track.appendChild(firstCard);
-            position += cardWidthWithGap;
+            currentPosition += cardWidthWithGap;
         }
-
-        track.style.transform = `translateX(${position}px)`;
+        
+        track.style.transform = `translateX(${currentPosition}px)`;
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    // --- EVENTOS DE INTERAÇÃO ---
-    container.addEventListener('mouseenter', () => { isPaused = true; });
-    container.addEventListener('mouseleave', () => {
-        if (isPaused) { // Só reinicia se estava pausado por este evento
-            isPaused = false;
-            animate();
-        }
-    });
+    function startAnimation() {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        isPausedByInteraction = false;
+        track.style.transition = 'none';
+        animate();
+    }
 
-    // --- INICIALIZAÇÃO ---
-    setupClones();
-    
-    // Aplica a posição inicial antes de começar a animar.
-    track.style.transform = `translateX(${position}px)`; 
-    
-    animate(); // Inicia a animação
-
-    // Adiciona um listener para recalcular os clones se a tela for redimensionada
-    window.addEventListener('resize', () => {
-        // Para a animação, recalcula e reinicia
+    function stopAnimation() {
+        isPausedByInteraction = true;
         cancelAnimationFrame(animationFrameId);
-        // Pequeno delay para garantir que o DOM atualizou as larguras
-        setTimeout(() => {
-            position = container.offsetWidth;
-            setupClones();
-            animate();
-        }, 50);
+        clearTimeout(resumeTimeoutId);
+    }
+    
+    function snapToCard(direction) {
+        stopAnimation();
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        const cardWidthWithGap = track.firstElementChild.offsetWidth + gap;
+        
+        currentPosition -= direction * cardWidthWithGap;
+        track.style.transition = 'transform 0.5s ease-out';
+        track.style.transform = `translateX(${currentPosition}px)`;
+        
+        resumeTimeoutId = setTimeout(startAnimation, RESUME_DELAY);
+    }
+
+    // --- INICIALIZAÇÃO E EVENTOS ---
+    function initialize() {
+        stopAnimation(); // Para qualquer animação anterior
+        setupClones();   // Roda a nova lógica de clonagem
+        startAnimation(); // Inicia a nova animação
+    }
+
+    nextBtn.addEventListener('click', () => snapToCard(1));
+    prevBtn.addEventListener('click', () => snapToCard(-1));
+    wrapper.addEventListener('mouseenter', stopAnimation);
+    wrapper.addEventListener('mouseleave', () => {
+        clearTimeout(resumeTimeoutId);
+        resumeTimeoutId = setTimeout(startAnimation, RESUME_DELAY);
     });
+
+    // Roda a inicialização quando a página carrega e também se a tela for redimensionada
+    initialize();
+    window.addEventListener('resize', initialize);
 });
