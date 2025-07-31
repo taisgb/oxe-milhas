@@ -1112,6 +1112,7 @@ section {
 .cta-content h2,
 .cta-content p {
     color: var(--text-white);
+    justify-content: center;
 }
 
 .cta-decoration {
@@ -2081,7 +2082,14 @@ section {
     .plan.featured:hover {
         transform: scale(1.1);
     }
-}
+
+    .cta-content h2,
+    .cta-content p {
+        color: var(--text-white);
+        justify-content: center;
+        text-align: center;
+    }
+    }
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
