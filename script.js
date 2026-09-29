@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnCloseFriends = document.getElementById('btn-closefriends');
     const mentoriaPlans = document.getElementById('mentoria-plans');
     const closeFriendsPlans = document.getElementById('closefriends-plans');
+    const planSecurityInfo = document.getElementById('plan-security-info');
 
     if (btnMentoria && btnCloseFriends && mentoriaPlans && closeFriendsPlans) {
         btnMentoria.addEventListener('click', () => {
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mentoriaPlans.classList.add('active');
             btnCloseFriends.classList.remove('toggle-active');
             closeFriendsPlans.classList.remove('active');
+            if (planSecurityInfo) planSecurityInfo.style.display = 'none';
             
             // Animação suave
             mentoriaPlans.style.opacity = '0';
@@ -115,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             closeFriendsPlans.classList.add('active');
             btnMentoria.classList.remove('toggle-active');
             mentoriaPlans.classList.remove('active');
+            if (planSecurityInfo) planSecurityInfo.style.display = '';
             
             // Animação suave
             closeFriendsPlans.style.opacity = '0';

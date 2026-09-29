@@ -1,70 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const form = document.getElementById('cotacao-form');
-    if (!form) return; // Só executa se o formulário existir na página
+    if (!form) return;
 
-    // Seletores do DOM
-    const steps = Array.from(form.querySelectorAll('.form-step'));
-    const nextButtons = form.querySelectorAll('.btn-next');
-    const prevButtons = form.querySelectorAll('.btn-prev');
+    const allSteps = Array.from(form.querySelectorAll('.form-step'));
     const progressBarFill = document.querySelector('.progress-bar-fill');
-    
-    // Inputs de passageiros
+    const statusMessage = document.getElementById('form-status-message');
+    const tipoServicoInput = document.getElementById('tipo-servico');
+    const cotacaoTitle = document.getElementById('cotacao-title');
+    const cotacaoSubtitle = document.getElementById('cotacao-subtitle');
+    const mentoriaCta = document.getElementById('mentoria-cotacao-btn');
+
     const numCriancasInput = document.getElementById('criancas');
     const numBebesInput = document.getElementById('bebes');
-    
-    // Containers para idades
     const idadesCriancasContainer = document.getElementById('idades-criancas-container');
     const idadesBebesContainer = document.getElementById('idades-bebes-container');
 
-    const statusMessage = document.getElementById('form-status-message');
-    
+    let service = 'viagem';
     let currentStep = 0;
+    let activeSteps = [];
 
-    // --- FUNÇÕES DE NAVEGAÇÃO E UI ---
-    const updateFormSteps = () => {
-        steps.forEach((step, index) => {
-            step.classList.toggle('active', index === currentStep);
+    const getServiceSteps = () => allSteps.filter(step => {
+        const stepService = step.dataset.service || 'common';
+        return stepService === 'common' || stepService === service;
+    });
+
+    const setIrrelevantFieldsDisabled = () => {
+        allSteps.forEach(step => {
+            const stepService = step.dataset.service || 'common';
+            const enabled = stepService === 'common' || stepService === service;
+            step.querySelectorAll('input, select, textarea, button').forEach(field => {
+                if (field.type !== 'button' && field.type !== 'submit') {
+                    field.disabled = !enabled;
+                }
+            });
         });
-        updateProgressBar();
     };
 
     const updateProgressBar = () => {
-        if (progressBarFill) {
-            const progressPercentage = (currentStep / (steps.length - 1)) * 100;
-            progressBarFill.style.width = `${progressPercentage}%`;
-        }
+        if (!progressBarFill || activeSteps.length === 0) return;
+        const progressPercentage = ((currentStep + 1) / activeSteps.length) * 100;
+        progressBarFill.style.width = `${progressPercentage}%`;
     };
 
-    // --- VALIDAÇÃO DOS PASSOS (ATUALIZADA) ---
+    const updateFormSteps = () => {
+        activeSteps = getServiceSteps();
+        allSteps.forEach(step => step.classList.remove('active'));
+        if (activeSteps[currentStep]) activeSteps[currentStep].classList.add('active');
+        updateProgressBar();
+    };
+
+    const configureService = (nextService) => {
+        service = nextService;
+        currentStep = 0;
+        statusMessage.textContent = '';
+        statusMessage.className = '';
+
+        if (tipoServicoInput) {
+            tipoServicoInput.value = service === 'mentoria' ? 'mentoria_milhas' : 'cotacao_viagem';
+        }
+
+        if (service === 'mentoria') {
+            cotacaoTitle.textContent = 'Solicite sua cotação de mentoria';
+            cotacaoSubtitle.textContent = 'Conte um pouco sobre seu objetivo com milhas para prepararmos uma proposta personalizada.';
+        } else {
+            cotacaoTitle.textContent = 'Faça sua cotação de viagem';
+            cotacaoSubtitle.textContent = 'Preencha os dados abaixo e receba uma proposta personalizada!';
+        }
+
+        setIrrelevantFieldsDisabled();
+        updateFormSteps();
+    };
+
     const validateStep = (stepIndex) => {
-        const currentStepElement = steps[stepIndex];
-        const inputs = currentStepElement.querySelectorAll('input[required], textarea[required]');
+        const currentStepElement = activeSteps[stepIndex];
+        if (!currentStepElement) return false;
+
+        const fields = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
         let isValid = true;
 
-        // Valida inputs de texto, email, numero, etc.
-        inputs.forEach(input => {
-            input.style.borderColor = 'var(--border-color)';
-            if (input.type !== 'radio' && !input.value.trim()) {
-                input.style.borderColor = '#ef4444'; // Cor de erro
+        fields.forEach(field => {
+            if (field.type === 'radio') return;
+            field.style.borderColor = 'var(--border-color)';
+            if (!String(field.value || '').trim()) {
+                field.style.borderColor = '#ef4444';
                 isValid = false;
             }
         });
 
-        // Validação específica para grupos de rádio
         const radioGroups = currentStepElement.querySelectorAll('.radio-group');
         radioGroups.forEach(group => {
-            const radioName = group.querySelector('input[type="radio"]').name;
-            const isChecked = currentStepElement.querySelector(`input[name="${radioName}"]:checked`);
-            
-            // Limpa estilos de erro anteriores
+            const firstRadio = group.querySelector('input[type="radio"]');
+            if (!firstRadio || !firstRadio.required) return;
+
+            const isChecked = currentStepElement.querySelector(`input[name="${firstRadio.name}"]:checked`);
             group.querySelectorAll('.radio-label').forEach(label => {
                 label.style.borderColor = 'var(--border-color)';
             });
 
             if (!isChecked) {
                 isValid = false;
-                // Adiciona uma borda de erro em todos os labels do grupo
                 group.querySelectorAll('.radio-label').forEach(label => {
                     label.style.borderColor = '#ef4444';
                 });
@@ -78,13 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
             statusMessage.textContent = '';
             statusMessage.className = '';
         }
+
         return isValid;
     };
 
-
-    // --- LÓGICA CONDICIONAL DE IDADES ---
     const generateAgeInputs = (count, container, type, unit, minAge, maxAge) => {
-        container.innerHTML = ''; // Limpa o container
+        if (!container) return;
+        container.innerHTML = '';
         if (count > 0) {
             const title = document.createElement('label');
             title.textContent = `Idade de cada ${type}`;
@@ -104,48 +138,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- EVENT LISTENERS ---
-    nextButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (validateStep(currentStep)) {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    updateFormSteps();
-                }
-            }
-        });
-    });
+    form.addEventListener('click', (event) => {
+        const nextButton = event.target.closest('.btn-next');
+        const prevButton = event.target.closest('.btn-prev');
 
-    prevButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            currentStep--;
+        if (nextButton) {
+            if (validateStep(currentStep) && currentStep < activeSteps.length - 1) {
+                currentStep++;
+                updateFormSteps();
+            }
+        }
+
+        if (prevButton) {
+            currentStep = Math.max(0, currentStep - 1);
             updateFormSteps();
-        });
+        }
     });
 
     if (numCriancasInput) {
         numCriancasInput.addEventListener('change', () => {
-            generateAgeInputs(parseInt(numCriancasInput.value), idadesCriancasContainer, 'criança', 'anos', 2, 11);
+            generateAgeInputs(parseInt(numCriancasInput.value || '0', 10), idadesCriancasContainer, 'criança', 'anos', 2, 11);
         });
     }
 
     if (numBebesInput) {
         numBebesInput.addEventListener('change', () => {
-            generateAgeInputs(parseInt(numBebesInput.value), idadesBebesContainer, 'bebê', 'meses', 0, 23);
+            generateAgeInputs(parseInt(numBebesInput.value || '0', 10), idadesBebesContainer, 'bebê', 'meses', 0, 23);
         });
     }
 
-    // --- ENVIO DO FORMULÁRIO PARA O FORMSPREE ---
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
+    if (mentoriaCta) {
+        mentoriaCta.addEventListener('click', () => configureService('mentoria'));
+    }
+
+    document.querySelectorAll('a[href="#cotacao"]:not(.mentoria-quote-cta)').forEach(link => {
+        link.addEventListener('click', () => configureService('viagem'));
+    });
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
         if (!validateStep(currentStep)) return;
 
         const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
+        const submitButton = activeSteps[currentStep].querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : '';
 
-        submitButton.disabled = true;
-        submitButton.textContent = 'Enviando...';
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+        }
+
         statusMessage.textContent = '';
         statusMessage.className = '';
 
@@ -156,30 +198,31 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (response.ok) {
-                statusMessage.textContent = "Obrigado! Sua cotação foi enviada. Responderemos em breve.";
+                statusMessage.textContent = service === 'mentoria'
+                    ? 'Obrigado! Sua solicitação de mentoria foi enviada. Responderemos em breve.'
+                    : 'Obrigado! Sua cotação foi enviada. Responderemos em breve.';
                 statusMessage.className = 'success';
                 form.reset();
-                currentStep = 0;
-                updateFormSteps();
                 if (idadesCriancasContainer) idadesCriancasContainer.innerHTML = '';
                 if (idadesBebesContainer) idadesBebesContainer.innerHTML = '';
+                configureService(service);
             } else {
-                response.json().then(data => {
-                    statusMessage.textContent = data.errors ? data.errors.map(error => error.message).join(", ") : "Ocorreu um erro ao enviar. Tente novamente.";
-                    statusMessage.className = 'error';
+                return response.json().then(data => {
+                    throw new Error(data.errors ? data.errors.map(error => error.message).join(', ') : 'Ocorreu um erro ao enviar. Tente novamente.');
                 });
             }
         })
         .catch(error => {
-            statusMessage.textContent = "Erro de rede. Verifique sua conexão e tente novamente.";
+            statusMessage.textContent = error.message || 'Erro de rede. Verifique sua conexão e tente novamente.';
             statusMessage.className = 'error';
         })
         .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Enviar Cotação';
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
     });
 
-    // Inicia o formulário no estado correto
-    updateFormSteps();
+    configureService('viagem');
 });

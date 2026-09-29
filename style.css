@@ -2109,3 +2109,103 @@ section {
     transform: translateY(0);
 }
 
+
+/* ---- MENTORIA: CARD ÚNICO PARA COTAÇÃO ---- */
+#mentoria-plans.mentoria-plans-container.active {
+    display: flex;
+    justify-content: center;
+}
+
+.mentoria-quote-card {
+    width: min(100%, 720px);
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--text-card);
+    transition: var(--transition);
+}
+
+.mentoria-quote-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.mentoria-quote-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.mentoria-eyebrow {
+    display: inline-block;
+    color: var(--secondary-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .78rem;
+    margin-bottom: .65rem;
+}
+
+.mentoria-quote-card h3 {
+    color: var(--primary-color);
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    margin-bottom: 1rem;
+}
+
+.mentoria-quote-intro {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    color: var(--text-card);
+}
+
+.mentoria-benefits {
+    list-style: none;
+    max-width: 590px;
+    margin: 0 auto 2rem;
+    text-align: left;
+    display: grid;
+    gap: .8rem;
+}
+
+.mentoria-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+}
+
+.mentoria-benefits i {
+    color: var(--accent-color);
+    margin-top: .3rem;
+}
+
+.mentoria-quote-cta {
+    width: min(100%, 340px);
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.mentoria-quote-note {
+    display: block;
+    margin-top: .9rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .mentoria-quote-card {
+        padding: 1.6rem 1.2rem;
+    }
+
+    .mentoria-benefits {
+        font-size: .95rem;
+    }
+}
